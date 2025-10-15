@@ -15,6 +15,7 @@ body {
     text-align: center;
     user-select: none;
     overflow-x: hidden;
+    cursor: url("../cur/Embossed Gray Scale.cur"), auto;
 }
 
 /* =========================
@@ -28,6 +29,7 @@ h1 {
 
 a:hover {
     text-decoration: underline wavy;
+    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
 }
 
 /* =========================
@@ -63,6 +65,7 @@ header {
     transform: translateY(-10px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     box-shadow: inset 0 0 10px rgb(10, 10, 10);
+    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
 }
 
 .project-card img {
@@ -80,7 +83,7 @@ header {
 }
 
 .projects:hover .project-card {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .projects .project-card:hover {
@@ -112,6 +115,7 @@ header {
     border-left: 4px solid #00c964;
     border-right: 4px solid #00c964;
     transform: translateY(-5px);
+    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
 }
 
 .timeline-event h3 {
@@ -140,7 +144,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #111;
+    background-color: #020018e0;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -177,7 +181,7 @@ footer {
 .menu-toggle {
     display: none;
     font-size: 1.8rem;
-    cursor: pointer;
+    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
     color: #00c9a7;
 }
 
@@ -261,4 +265,77 @@ footer {
     background-color: #1a1a1a;
     border: 2px #00c964 solid;
     color: #00c964;
+}
+
+/* =========================
+   Glint Effect
+========================= */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.226) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+}
+
+.btn:hover::before {
+    animation: glint 0.75s forwards;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+@keyframes glint {
+    0% {
+        left: -75%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+/* =========================
+   Particle Background
+========================= */
+#particle-wrap {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#particle-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+body {
+    margin: 0;
+    background: #0a0a0a;
+    color: #fff;
+}
+
+.particle-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.6));
 }
