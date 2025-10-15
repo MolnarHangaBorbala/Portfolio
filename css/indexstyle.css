@@ -1,0 +1,264 @@
+/* =========================
+   Fonts & Base
+========================= */
+@font-face {
+    font-family: mono1;
+    src: url(../font/JetBrainsMono-Light.ttf);
+}
+
+body {
+    font-family: mono1, 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+/* =========================
+   Links & Headings
+========================= */
+a,
+h1 {
+    color: #00c9a7;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline wavy;
+}
+
+/* =========================
+   Header
+========================= */
+header {
+    padding: 2rem 1rem;
+}
+
+/* =========================
+   Projects / Cards
+========================= */
+.projects,
+.scratch-projects,
+.web-projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: inset 0 0 20px rgb(10, 10, 10);
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 10px rgb(10, 10, 10);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.project-card h3 {
+    margin: 0.5rem 0;
+}
+
+.project-card p {
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.projects:hover .project-card {
+    opacity: 0.5;
+}
+
+.projects .project-card:hover {
+    opacity: 1;
+}
+
+/* =========================
+   Timeline
+========================= */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.timeline-event {
+    background: #1a1a1a;
+    border-left: 4px solid #00c9a7;
+    border-right: 4px solid #1a1a1a;
+    padding: 1rem;
+    border-radius: 6px;
+    transition: transform 0.3s, border 0.4s;
+}
+
+.timeline-event:hover {
+    border-left: 4px solid #00c964;
+    border-right: 4px solid #00c964;
+    transform: translateY(-5px);
+}
+
+.timeline-event h3 {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-event p {
+    margin: 0;
+    color: #ccc;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+    margin-top: 3rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* =========================
+   Navbar
+========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.2s, background-color 0.2s;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.navbar .nav-links li a:hover,
+.navbar .nav-links li a.selected {
+    color: #00c9a7;
+    background-color: #222;
+}
+
+/* Hamburger menu */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00c9a7;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -200px;
+        background-color: #111;
+        flex-direction: column;
+        width: 200px;
+        border-left: 2px solid #00c9a7;
+        transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        padding: 1rem 0;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1000;
+        height: calc(100% - 70px);
+    }
+
+    .navbar .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links.active {
+        right: 0;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* =========================
+   Responsive Projects Grid
+========================= */
+@media (min-width: 600px) {
+
+    .projects,
+    .scratch-projects,
+    .web-projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+
+    .projects,
+    .scratch-projects,
+    .web-projects {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.links {
+    padding: 3px 0px;
+}
+
+#random {
+    background-color: #111;
+    padding: 15px;
+    width: fit-content;
+    border-radius: 10px;
+    border: 2px #00c9a7 solid;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.center {
+    width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center:hover #random {
+    background-color: #1a1a1a;
+    border: 2px #00c964 solid;
+    color: #00c964;
+}
