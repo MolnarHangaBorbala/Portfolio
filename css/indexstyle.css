@@ -29,6 +29,9 @@ h1 {
 
 a:hover {
     text-decoration: underline wavy;
+}
+
+a {
     cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
 }
 
@@ -332,6 +335,4 @@ footer {
     z-index: 0;
     pointer-events: none;
     background: linear-gradient(180deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.6));
-
 }
-
