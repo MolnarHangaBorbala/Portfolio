@@ -8,7 +8,7 @@
 
 body {
     font-family: mono1, 'Poppins', sans-serif;
-    background: #0a0a0a;
+    background: #000000;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -338,4 +338,5 @@ body {
     z-index: 0;
     pointer-events: none;
     background: linear-gradient(180deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.6));
+
 }
