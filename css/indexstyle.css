@@ -188,7 +188,7 @@ footer {
 /* =========================
    Responsive
 ========================= */
-@media (max-width: 768px) {
+@media (max-width: 568px) {
     .navbar .nav-links {
         position: fixed;
         top: 70px;
