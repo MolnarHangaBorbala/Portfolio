@@ -34,7 +34,7 @@ function random() {
 
     const config = {
         baseColor: [249, 255, 162], // RGB for accent [0, 201, 167] (cyan-like). Use e.g. [255,255,255] for white
-        backgroundAlpha: 1,         // trail / glow alpha effect (small)
+        backgroundAlpha: 1,         // trail / glow alpha effect
         particleMin: 40,            // min particles on very small screens
         particleMax: 120,           // max on large screens
         maxSize: 3.2,               // max particle radius
