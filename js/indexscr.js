@@ -33,7 +33,7 @@ function random() {
     const ctx = canvas.getContext('2d', { alpha: true });
 
     const config = {
-        baseColor: [249, 255, 162], // RGB for accent [0, 201, 167] (cyan-like). Use e.g. [255,255,255] for white
+        baseColor: [255, 248, 146], // RGB for accent [0, 201, 167] (cyan-like). Use e.g. [255,255,255] for white
         backgroundAlpha: 1,         // trail / glow alpha effect
         particleMin: 40,            // min particles on very small screens
         particleMax: 120,           // max on large screens
@@ -123,7 +123,7 @@ function random() {
                 const q = particles[j];
                 const d = Math.hypot(p.x - q.x, p.y - q.y);
                 if (d < config.connectionDistance) {
-                    const lineAlpha = (1 - d / config.connectionDistance) * 0.08 * (p.alpha + q.alpha) * 0.7;
+                    const lineAlpha = (1 - d / config.connectionDistance) * 0.5 * (p.alpha + q.alpha) * 0.7;
                     ctx.strokeStyle = `rgba(${config.baseColor.join(',')}, ${lineAlpha})`;
                     ctx.lineWidth = 1 * ((p.r + q.r) / (config.maxSize * 2));
                     ctx.beginPath();
