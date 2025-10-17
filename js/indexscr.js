@@ -98,10 +98,9 @@ function random() {
             if (p.y < -10) p.y = h + 10;
             if (p.y > h + 10) p.y = -10;
 
-            const m = mouse;
-            const d = Math.hypot(p.x - m.x, p.y - m.y);
+            const d = Math.hypot(p.x - mouse.x, p.y - mouse.y);
             if (d < config.mouseRepelRadius) {
-                const angle = Math.atan2(p.y - m.y, p.x - m.x);
+                const angle = Math.atan2(p.y - mouse.y, p.x - mouse.x);
                 const force = (1 - d / config.mouseRepelRadius) * 3.4;
                 p.vx += Math.cos(angle) * force * 0.06;
                 p.vy += Math.sin(angle) * force * 0.06;
@@ -109,13 +108,18 @@ function random() {
 
             p.vx *= 0.995;
             p.vy *= 0.995;
+
+            if (Math.abs(p.vx) < 0.02 && Math.abs(p.vy) < 0.02) {
+                p.vx += (Math.random() - 0.5) * 0.2 * config.speed;
+                p.vy += (Math.random() - 0.5) * 0.2 * config.speed;
+            }
         }
     }
 
     function draw() {
         ctx.clearRect(0, 0, w, h);
         ctx.fillStyle = `rgba(10,10,10,${config.backgroundAlpha})`;
-        ctx.fillRect(0,0,w,h);
+        ctx.fillRect(0, 0, w, h);
 
         for (let i = 0; i < particles.length; i++) {
             const p = particles[i];
