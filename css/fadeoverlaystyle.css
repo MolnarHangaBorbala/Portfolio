@@ -5,7 +5,7 @@
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 1; 
+    opacity: 1;
     pointer-events: all;
     transition: opacity 1.5s ease;
     z-index: 9999;
@@ -19,4 +19,36 @@
 #fadeOverlay.fade-out {
     opacity: 1;
     pointer-events: all;
+}
+
+/* Left click menu */
+.context-menu {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    border-left: 1px solid #00c9a7;
+    border-radius: 8px;
+    min-width: 160px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 10000;
+    overflow: hidden;
+}
+
+.context-menu div {
+    list-style: none;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    color: #f0f0f0;
+    transition: background-color 0.2s, color 0.2s;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    border-left: 3px solid #00c9a7;
+    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
+}
+
+.context-menu div:hover {
+    background-color: #9b9b9bcc;
+    color: #000000;
+    border-left: 3px solid #00df38;
 }

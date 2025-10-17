@@ -11,6 +11,13 @@
 </head>
 
 <body>
+    <div id="context-menu" class="context-menu">
+        <div onclick="home()">🏠 Home</div>
+        <div onclick="random()">🎲 Random Project</div>
+        <div onclick="toggleTheme()">🌓 Toggle Theme</div>
+        <div onclick="alert('Made by _zendev 💻')">💬 About</div>
+    </div>
+
     <div id="fadeOverlay" class="fade-in-start"></div>
     <div id="particle-wrap" aria-hidden="true">
         <canvas id="particle-canvas"></canvas>
@@ -28,7 +35,7 @@
             <li><a onclick="projects()">Projects</a></li>
         </ul>
     </nav>
-    
+
     <header>
         <h1>Games</h1>
         <p>HTML, CSS, JS — making the web more playful.</p>
@@ -72,6 +79,7 @@
     <script src="../js/indexscr.js"></script>
     <script src="../js/fadeoverlayscr.js"></script>
     <script src="../js/sub.js"></script>
+    <script src="../js/radialmenuscr.js"></script>
 </body>
 
 </html>
