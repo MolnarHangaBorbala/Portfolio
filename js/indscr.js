@@ -6,7 +6,7 @@ function home() {
 
     setTimeout(() => {
         window.location.href = "index.html";
-    }, 1050);
+    }, 350);
 }
 
 function scratch() {
@@ -17,7 +17,7 @@ function scratch() {
 
     setTimeout(() => {
         window.location.href = "html/scratch.html";
-    }, 1050);
+    }, 350);
 }
 
 function games() {
@@ -28,7 +28,7 @@ function games() {
 
     setTimeout(() => {
         window.location.href = "html/games.html";
-    }, 1050);
+    }, 350);
 }
 
 function projects() {
@@ -39,5 +39,5 @@ function projects() {
 
     setTimeout(() => {
         window.location.href = "html/projects.html";
-    }, 1050);
+    }, 350);
 }
