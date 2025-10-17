@@ -25,24 +25,30 @@ function random() {
     }
 }
 
-// Particle Background
-(() => {
+window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('particle-canvas');
-    if (!canvas) return;
+    if (!canvas) {
+        console.error('Canvas element not found');
+        return;
+    }
 
-    const ctx = canvas.getContext('2d', { alpha: true });
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+        console.error('Could not get canvas context');
+        return;
+    }
 
     const config = {
-        baseColor: [255, 248, 146], // RGB for accent [0, 201, 167] (cyan-like). Use e.g. [255,255,255] for white
-        backgroundAlpha: 1,         // trail / glow alpha effect
-        particleMin: 40,            // min particles on very small screens
-        particleMax: 120,           // max on large screens
-        maxSize: 3.2,               // max particle radius
-        minSize: 0.6,               // min particle radius
-        speed: 0.45,                // base speed multiplier
-        connectionDistance: 120,    // distance to draw faint lines between particles
-        mouseRepelRadius: 50,       // radius of mouse repulsion
-        reduceOnMobile: true,       // lower particle count on mobile
+        baseColor: [255, 248, 146],
+        backgroundAlpha: 0.5,
+        particleMin: 40,
+        particleMax: 120,
+        maxSize: 3.2,
+        minSize: 0.6,
+        speed: 0.45,
+        connectionDistance: 120,
+        mouseRepelRadius: 50,
+        reduceOnMobile: true,
     };
 
     let particles = [];
@@ -50,7 +56,6 @@ function random() {
     let mouse = { x: -9999, y: -9999, down: false };
 
     const rand = (min, max) => Math.random() * (max - min) + min;
-    const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 
     function resize() {
         w = canvas.clientWidth || window.innerWidth;
@@ -117,8 +122,7 @@ function random() {
     }
 
     function draw() {
-        ctx.clearRect(0, 0, w, h);
-        ctx.fillStyle = `rgba(10,10,10,${config.backgroundAlpha})`;
+        ctx.fillStyle = `rgba(0, 0, 0, ${config.backgroundAlpha})`;
         ctx.fillRect(0, 0, w, h);
 
         for (let i = 0; i < particles.length; i++) {
@@ -142,10 +146,8 @@ function random() {
             ctx.beginPath();
             const glow = Math.min(0.9, p.alpha);
             ctx.fillStyle = `rgba(${config.baseColor.join(',')}, ${glow})`;
-            ctx.globalCompositeOperation = 'lighter';
             ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
             ctx.fill();
-            ctx.globalCompositeOperation = 'source-over';
         }
     }
 
@@ -168,6 +170,7 @@ function random() {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
     });
+
     window.addEventListener('mouseleave', () => {
         mouse.x = -9999;
         mouse.y = -9999;
@@ -191,4 +194,4 @@ function random() {
         setCount: (n) => { initParticles(n); },
         destroy: () => { cancelAnimationFrame(rafId); particles = []; ctx.clearRect(0, 0, w, h); }
     };
-})();
+});

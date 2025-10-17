@@ -5,20 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/indexstyle.css">
     <link rel="stylesheet" href="css/fadeoverlaystyle.css">
+    <link rel="stylesheet" href="css/indexstyle.css">
     <title>Home</title>
 </head>
 
 <body>
-    <div id="context-menu" class="context-menu">
-        <div onclick="home()">🏠 Home</div>
-        <div onclick="random()">🎲 Random Project</div>
-        <div onclick="toggleTheme()">🌓 Toggle Theme</div>
-        <div onclick="alert('Made by _zendev 💻')">💬 About</div>
-    </div>
-
     <div id="fadeOverlay" class="fade-in-start"></div>
+
     <div id="particle-wrap" aria-hidden="true">
         <canvas id="particle-canvas"></canvas>
     </div>
@@ -76,8 +70,12 @@
     <section class="timeline">
         <div class="timeline-event">
             <h3>2019–2023</h3>
-            <p>Started with <a href="html/scratch-projects.html" target="_blank">Scratch</a> — made first games and
-                interactive stories in 7th and 8th grade.</p>
+            <p>My journey began with <a href="html/scratch-projects.html" target="_blank">Scratch</a>, where I created
+                my first games and interactive stories during 7th and 8th grade. Around the same time, I also explored
+                mild robotics and <a href="https://store.arduino.cc/">Arduino</a> projects. In 7th grade, I also applied
+                for the
+                <a href="https://careers.epam.hu/education/ekids">EPAM e-Kids</a> competition.
+            </p>
         </div>
         <div class="timeline-event">
             <h3>2023–2024</h3>
@@ -91,7 +89,13 @@
         </div>
         <div class="timeline-event">
             <h3>2025–Present</h3>
-            <p>Learning C# and advanced JS — building more complex web games and a portfolio.</p>
+            <p>Currently learning C# and advanced JavaScript to develop more complex web games and expand my portfolio.
+            </p>
+        </div>
+        <div class="timeline-event">
+            <h3>Present–Future</h3>
+            <p>I’ve also started creating my own AI chatbot, which I plan to eventually integrate into a physical
+                robot.</p>
         </div>
     </section>
 
@@ -100,10 +104,18 @@
                 href="https://im-zendev.itch.io" target="_blank">Itch.io</a></p>
     </footer>
 
-    <script src="js/indexscr.js"></script>
+    <div id="context-menu" class="context-menu">
+        <div onclick="home()">🏠 Home</div>
+        <div onclick="random()">🎲 Random Project</div>
+        <div onclick="toggleTheme()">🌓 Toggle Theme</div>
+        <div onclick="alert('Built by ZenDev 💻 — turning ideas into pixels with HTML, CSS, and JavaScript.');">💬 About
+        </div>
+    </div>
+
     <script src="js/fadeoverlayscr.js"></script>
     <script src="js/indscr.js"></script>
     <script src="js/radialmenuscr.js"></script>
+    <script src="js/indexscr.js"></script>
 </body>
 
 </html>
