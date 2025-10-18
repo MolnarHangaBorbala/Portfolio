@@ -7,22 +7,19 @@
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/substyle.css">
     <link rel="stylesheet" href="../css/fadeoverlaystyle.css">
-    <title>Projects</title>
+    <title>Projects | _zendev</title>
 </head>
 
 <body>
-    <div id="context-menu" class="context-menu">
-        <div onclick="home()">🏠 Home</div>
-        <div onclick="random()">🎲 Random Project</div>
-        <div onclick="toggleTheme()">🌓 Toggle Theme</div>
-        <div onclick="alert('Made by _zendev 💻')">💬 About</div>
-    </div>
-
+    <!-- Fade overlay -->
     <div id="fadeOverlay" class="fade-in-start"></div>
+
+    <!-- Particle background -->
     <div id="particle-wrap" aria-hidden="true">
         <canvas id="particle-canvas"></canvas>
     </div>
 
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="logo"><a class="selected" onclick="home()">_zendev</a></div>
         <div class="menu-toggle" id="mobile-menu">
@@ -36,11 +33,13 @@
         </ul>
     </nav>
 
+    <!-- Hero section -->
     <header>
         <h1>Projects</h1>
         <p>Projects that combine code, design, and a little bit of fun.</p>
     </header>
 
+    <!-- Highlights -->
     <section class="projects">
         <div class="project-card btn">
             <img src="../img/music-player-img.png" alt="Music Player">
@@ -68,10 +67,24 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>© 2025 _zendev | <a href="https://github.com/MolnarHangaBorbala" target="_blank">Github</a> | <a
-                href="https://im-zendev.itch.io" target="_blank">Itch.io</a></p>
+        <p>
+            © 2025 _zendev |
+            <a href="https://github.com/MolnarHangaBorbala" target="_blank">GitHub</a> |
+            <a href="https://im-zendev.itch.io" target="_blank">Itch.io</a>
+        </p>
     </footer>
+
+    <!-- Custom Right-click Menu -->
+    <div id="context-menu" class="context-menu">
+        <div onclick="home()">🏠 Home</div>
+        <div onclick="random()">🎲 Random Project</div>
+        <div onclick="toggleTheme()">🌓 Toggle Theme</div>
+        <div onclick="alert('Built by _zendev 💻 — turning ideas into pixels with HTML, CSS, and JavaScript.');">
+            💬 About
+        </div>
+    </div>
 
     <script src="../js/indexscr.js"></script>
     <script src="../js/fadeoverlayscr.js"></script>
