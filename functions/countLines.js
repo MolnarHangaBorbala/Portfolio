@@ -4,11 +4,11 @@ const CACHE_TTL = 60 * 5; // cache for 5 minutes
 let cache = null;
 let lastFetch = 0;
 
-export async function handler() {
+export async function handler(event, context) {
     const now = Date.now();
 
-    // Return cached data if recent
     if (cache && now - lastFetch < CACHE_TTL * 1000) {
+        console.log("Returning cached data");
         return {
             statusCode: 200,
             body: JSON.stringify(cache),
@@ -19,24 +19,25 @@ export async function handler() {
         const token = process.env.GITHUB_TOKEN;
 
         if (!token) {
-            throw new Error("GITHUB_TOKEN is not set in environment variables");
+            throw new Error("GITHUB_TOKEN environment variable is missing!");
         }
 
         const octokit = new Octokit({ auth: token });
 
-        // Fetch languages from your repo
+        console.log("Fetching languages for MolnarHangaBorbala/Portfolio...");
+
         const { data: languages } = await octokit.repos.getLanguages({
             owner: "MolnarHangaBorbala",
             repo: "Portfolio",
         });
 
-        // Convert GitHub byte counts to array for Chart.js
+        console.log("Languages fetched:", languages);
+
         const result = Object.keys(languages).map(lang => ({
             label: lang,
             value: languages[lang],
         }));
 
-        // Cache the result
         cache = result;
         lastFetch = now;
 
@@ -45,12 +46,15 @@ export async function handler() {
             body: JSON.stringify(result),
         };
     } catch (err) {
-        console.error("Error fetching GitHub data:", err);
+        console.error("Error in countLines function:", err);
 
-        // Always return an array to prevent front-end crashes
         return {
-            statusCode: 200,
-            body: JSON.stringify([]),
+            statusCode: 500,
+            body: JSON.stringify({
+                errorType: err.name,
+                errorMessage: err.message,
+                stack: err.stack,
+            }),
         };
     }
 }
