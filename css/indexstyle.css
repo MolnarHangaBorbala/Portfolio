@@ -724,7 +724,7 @@ footer {
 }
 
 .github-langs-section .subtitle {
-    color: #ccc;
+    color: #ffffff;
     margin-bottom: 2rem;
 }
 
@@ -737,7 +737,7 @@ footer {
 #myChart {
     max-width: 60vw;
     max-height: 60vh;
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
