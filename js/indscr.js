@@ -56,16 +56,9 @@ async function renderChart() {
         data.sort((a, b) => b.value - a.value);
 
         const colors = [
-            "#00c9a7",
-            "#00e357",
-            "#0091ff",
-            "#ffb400",
-            "#ff6363",
-            "#c77dff",
-            "#ff66c4",
-            "#b8f500",
-            "#ff9f1c",
-            "#2ec4b6"
+          "#00e3b2", "#00c9a7", "#00b4d8", "#0096c7",
+          "#0077b6", "#005f73", "#38b000", "#70e000",
+          "#80ed99", "#2ec4b6"
         ];
 
         const ctx = document.getElementById("myChart").getContext("2d");
@@ -97,5 +90,6 @@ async function renderChart() {
         console.error("Failed to render chart:", err);
     }
 }
+
 
 renderChart();
