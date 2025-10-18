@@ -79,8 +79,20 @@ async function renderChart() {
                 responsive: true,
                 maintainAspectRatio: true,
                 plugins: {
-                    legend: { position: "bottom", labels: { boxWidth: 20, padding: 10 } },
-                    tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.raw} LOC` } }
+                    legend: {
+                        position: "bottom",
+                        labels: {
+                            color: "#fff",
+                            font: {
+                                size: 16,
+                                family: "'Segoe UI', sans-serif",
+                                weight: "500"
+                            },
+                            padding: 16,
+                            boxWidth: 18,
+                            boxHeight: 18
+                        }
+                    }
                 },
                 animation: { duration: 1200, easing: "easeOutCubic" }
             }
