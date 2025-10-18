@@ -6,6 +6,8 @@ let lastFetch = 0;
 
 export async function handler() {
     const now = Date.now();
+
+    // Return cached data if recent
     if (cache && now - lastFetch < CACHE_TTL * 1000) {
         return {
             statusCode: 200,
@@ -15,20 +17,26 @@ export async function handler() {
 
     try {
         const token = process.env.GITHUB_TOKEN;
+
+        if (!token) {
+            throw new Error("GITHUB_TOKEN is not set in environment variables");
+        }
+
         const octokit = new Octokit({ auth: token });
 
+        // Fetch languages from your repo
         const { data: languages } = await octokit.repos.getLanguages({
             owner: "MolnarHangaBorbala",
             repo: "Portfolio",
         });
 
-        // Convert GitHub byte counts to JSON for Chart.js
+        // Convert GitHub byte counts to array for Chart.js
         const result = Object.keys(languages).map(lang => ({
             label: lang,
             value: languages[lang],
         }));
 
-        // Cache result
+        // Cache the result
         cache = result;
         lastFetch = now;
 
@@ -37,9 +45,12 @@ export async function handler() {
             body: JSON.stringify(result),
         };
     } catch (err) {
+        console.error("Error fetching GitHub data:", err);
+
+        // Always return an array to prevent front-end crashes
         return {
-            statusCode: 500,
-            body: JSON.stringify({ error: err.message }),
+            statusCode: 200,
+            body: JSON.stringify([]),
         };
     }
 }
