@@ -95,9 +95,9 @@ h2 {
 .navbar .nav-links li a {
     color: var(--text);
     font-weight: 500;
-    transition: color 0.2s, background-color 0.2s;
     padding: 5px 8px;
     border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .navbar .nav-links li a:hover,
@@ -106,6 +106,7 @@ h2 {
     background-color: #222;
 }
 
+/* Hamburger menu */
 .menu-toggle {
     display: none;
     font-size: 1.8rem;
@@ -155,15 +156,14 @@ header.hero p {
     background: var(--bg-light);
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: inset 0 0 20px rgb(10, 10, 10);
+    box-shadow: inset 0 0 20px #0a0a0a;
     transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s;
     cursor: url("../cur/Embossed Gray Scale.cur"), auto;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgb(10, 10, 10);
-    cursor: url("../cur/Embossed Gray Scale.cur"), auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px #0a0a0a;
 }
 
 .project-card img {
@@ -176,33 +176,14 @@ header.hero p {
     color: var(--text);
 }
 
-#dim:hover .project-card {
-    opacity: 0.6;
-}
-
-#dim .project-card:hover {
-    opacity: 1;
-}
-
-.links {
-    padding-top: 4px;
-}
-
 .links a {
     color: var(--accent);
     margin: 0 3px;
     transition: color 0.2s;
-    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
 }
 
 .links a:hover {
-    color: var(--accent);
-}
-
-#dim {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    color: var(--accent-hover);
 }
 
 /* =========================================================
@@ -254,7 +235,6 @@ header.hero p {
     padding: 5rem 1rem;
     background: rgba(10, 10, 10, 0.4);
     border-top: 1px solid #00c9a767;
-    ;
     backdrop-filter: blur(3px);
 }
 
@@ -310,7 +290,7 @@ footer {
 }
 
 /* =========================================================
-   CUSTOM CURSOR BUTTON GLOW / GLINT
+   BUTTONS / GLINT
 ========================================================= */
 .btn {
     position: relative;
@@ -342,18 +322,46 @@ footer {
 }
 
 @keyframes glint {
-    0% {
-        left: -75%;
-    }
-
-    100% {
-        left: 125%;
-    }
+    0% { left: -75%; }
+    100% { left: 125%; }
 }
 
 /* =========================================================
-   RESPONSIVE NAV
+   PARTICLE BACKGROUND
 ========================================================= */
+#particle-wrap {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#particle-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent;
+}
+
+/* =========================================================
+   RESPONSIVE / MOBILE
+========================================================= */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    header.hero h1 {
+        font-size: 2rem;
+    }
+
+    header.hero p {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 568px) {
     .navbar .nav-links {
         position: fixed;
@@ -384,129 +392,5 @@ footer {
 
     .menu-toggle {
         display: block;
-    }
-}
-
-/* =========================================================
-   PARTICLE BACKGROUND
-========================================================= */
-#particle-wrap {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-#particle-canvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-    background: transparent;
-}
-
-/* =========================================================
-   SECRET / EASTER EGG UI
-========================================================= */
-#egg-toast {
-    display: none;
-    position: fixed;
-    right: 20px;
-    bottom: 24px;
-    background: #111;
-    border: 1px solid var(--accent);
-    padding: 12px 16px;
-    border-radius: 8px;
-    color: #fff;
-    z-index: 10001;
-    font-family: system-ui;
-}
-
-#egg-toast.show {
-    display: block;
-    animation: egg-pop 0.45s ease both;
-}
-
-@keyframes egg-pop {
-    from {
-        transform: translateY(8px) scale(0.98);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-}
-
-#egg-confetti {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 10000;
-    display: none;
-}
-
-.keypad {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background: rgba(20, 20, 20, 0.95);
-    border: 1px solid var(--accent);
-    border-radius: 10px;
-    padding: 1rem;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
-    z-index: 10000;
-    font-family: "Poppins", sans-serif;
-    backdrop-filter: blur(8px);
-    animation: fadeIn 0.4s ease forwards;
-}
-
-.keypad-display {
-    font-size: 1.3rem;
-    color: #fff;
-    letter-spacing: 4px;
-    border-bottom: 1px solid var(--accent);
-    width: 100%;
-    text-align: center;
-    padding-bottom: 4px;
-    margin-bottom: 10px;
-}
-
-.keypad-buttons {
-    display: grid;
-    grid-template-columns: repeat(3, 48px);
-    gap: 8px;
-}
-
-.keypad button {
-    background: #111;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: 0.2s;
-    padding: 8px 0;
-    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
-}
-
-.keypad button:hover {
-    background: var(--accent);
-    color: #111;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
     }
 }
