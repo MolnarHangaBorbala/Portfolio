@@ -52,11 +52,13 @@ async function renderChart() {
             return;
         }
 
+        // Sort by LOC descending
         data.sort((a, b) => b.value - a.value);
 
         const colors = [
             "#f1e05a", "#563d7c", "#e34c26", "#3572A5", "#178600",
-            "#b07219", "#c6538c", "#ffab70", "#00ADD8", "#701516"
+            "#b07219", "#c6538c", "#ffab70", "#00ADD8", "#701516",
+            "#6e5494", "#f7df1e", "#1e90ff"
         ];
 
         const ctx = document.getElementById("myChart").getContext("2d");
@@ -77,17 +79,8 @@ async function renderChart() {
                 responsive: true,
                 maintainAspectRatio: true,
                 plugins: {
-                    legend: {
-                        position: "bottom",
-                        labels: { boxWidth: 20, padding: 10 }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                return context.label + ": " + context.raw + " LOC";
-                            }
-                        }
-                    }
+                    legend: { position: "bottom", labels: { boxWidth: 20, padding: 10 } },
+                    tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.raw} LOC` } }
                 },
                 animation: { duration: 1200, easing: "easeOutCubic" }
             }

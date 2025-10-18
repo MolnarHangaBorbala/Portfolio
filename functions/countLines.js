@@ -1,6 +1,6 @@
 const { Octokit } = require("@octokit/rest");
 
-const CACHE_TTL = 60 * 5; // 5 minutes
+const CACHE_TTL = 60 * 10; // cache for 10 minutes
 let cache = null;
 let lastFetch = 0;
 
@@ -8,6 +8,7 @@ exports.handler = async function (event, context) {
     const now = Date.now();
 
     if (cache && now - lastFetch < CACHE_TTL * 1000) {
+        console.log("Returning cached aggregated language data");
         return {
             statusCode: 200,
             body: JSON.stringify(cache),
@@ -20,19 +21,42 @@ exports.handler = async function (event, context) {
 
         const octokit = new Octokit({ auth: token });
 
-        const response = await octokit.request('GET /repos/{owner}/{repo}/languages', {
-            owner: 'MolnarHangaBorbala',
-            repo: 'Portfolio'
+        // Fetch all public + private repos
+        const repos = await octokit.paginate('GET /user/repos', {
+            username: 'MolnarHangaBorbala',
+            per_page: 100
         });
 
-        const languages = response.data;
+        console.log(`Found ${repos.length} repos`);
 
-        // Convert bytes to approximate lines of code
+        // Fetch languages for each repo
+        const totalLanguages = {};
+
+        for (const repo of repos) {
+            const { data: langs } = await octokit.request(
+                'GET /repos/{owner}/{repo}/languages',
+                { owner: 'MolnarHangaBorbala', repo: repo.name }
+            );
+
+            for (const [lang, bytes] of Object.entries(langs)) {
+                totalLanguages[lang] = (totalLanguages[lang] || 0) + bytes;
+            }
+        }
+
+        // Convert bytes → lines of code
         const LOC_FACTOR = 50;
-        const result = Object.keys(languages).map(lang => ({
+        const result = Object.entries(totalLanguages).map(([lang, bytes]) => ({
             label: lang,
-            value: Math.round(languages[lang] / LOC_FACTOR)
+            value: Math.round(bytes / LOC_FACTOR)
         }));
+
+        // include all major languages even if 0
+        const majorLanguages = ["HTML", "CSS", "JavaScript", "Python", "C#", "JSON", "TypeScript", "Java"];
+        majorLanguages.forEach(lang => {
+            if (!result.find(r => r.label === lang)) {
+                result.push({ label: lang, value: 0 });
+            }
+        });
 
         cache = result;
         lastFetch = now;
@@ -41,8 +65,9 @@ exports.handler = async function (event, context) {
             statusCode: 200,
             body: JSON.stringify(result),
         };
+
     } catch (err) {
-        console.error("Error in countLines function:", err);
+        console.error("Error fetching aggregated languages:", err);
         return {
             statusCode: 500,
             body: JSON.stringify({
