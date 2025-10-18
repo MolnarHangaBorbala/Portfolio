@@ -308,7 +308,7 @@ header {
 #dim {
     width: fit-content;
     margin: 0 auto;
-}   
+}
 
 /* =========================================================
    TIMELINE
@@ -365,7 +365,9 @@ header {
     padding: 5rem 1rem;
     background: rgba(10, 10, 10, 0.4);
     border-top: 1px solid #00c9a767;
+    border-bottom: 1px solid #00c9a767;
     backdrop-filter: blur(3px);
+    margin-bottom: 5rem;
 }
 
 .tech-grid {
@@ -706,4 +708,32 @@ footer {
     .timeline {
         padding: 0 0.5rem;
     }
+}
+
+/* =========================================================
+    GITHUB LANGUAGES SECTION
+========================================================= */
+.github-langs-section {
+    text-align: center;
+    padding: 5rem 1rem;
+    background: rgba(10, 10, 10, 0.4);
+    border-top: 1px solid #00c9a767;
+    backdrop-filter: blur(3px);
+}
+
+.github-langs-section h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.github-langs-section .subtitle {
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+#langChart {
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto;
 }

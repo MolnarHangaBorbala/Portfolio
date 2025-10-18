@@ -41,3 +41,32 @@ function projects() {
         window.location.href = "html/projects.html";
     }, 350);
 }
+
+async function renderChart() {
+    try {
+        const res = await fetch("/.netlify/functions/fetchGitHubData");
+        const data = await res.json();
+
+        const ctx = document.getElementById("myChart").getContext("2d");
+        new Chart(ctx, {
+            type: "line", // or 'bar', 'pie', etc.
+            data: {
+                labels: data.map(d => d.label),   // adjust according to your JSON
+                datasets: [{
+                    label: "My Dataset",
+                    data: data.map(d => d.value),   // adjust according to your JSON
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    backgroundColor: "rgba(75, 192, 192, 0.2)"
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    } catch (err) {
+        console.error("Failed to render chart:", err);
+    }
+}
+
+renderChart();

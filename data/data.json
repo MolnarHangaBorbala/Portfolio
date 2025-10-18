@@ -1,0 +1,22 @@
+[
+    {
+        "label": "C#",
+        "value": 1200
+    },
+    {
+        "label": "HTML",
+        "value": 850
+    },
+    {
+        "label": "CSS",
+        "value": 400
+    },
+    {
+        "label": "JavaScript",
+        "value": 1600
+    },
+    {
+        "label": "Python",
+        "value": 950
+    }
+]
