@@ -52,31 +52,53 @@ async function renderChart() {
             return;
         }
 
-        // Convert bytes → approximate lines of code
-        const LOC_FACTOR = 50;
-        data = data.map(d => ({
-            label: d.label,
-            value: Math.round(d.value / LOC_FACTOR)
-        }));
+        // Sort by value descending (optional)
+        data.sort((a, b) => b.value - a.value);
+
+        // Colors for each language
+        const colors = [
+            "#f1e05a", "#563d7c", "#e34c26", "#3572A5", "#178600",
+            "#b07219", "#c6538c", "#ffab70", "#00ADD8", "#701516"
+        ];
 
         const ctx = document.getElementById("myChart").getContext("2d");
         new Chart(ctx, {
-            type: "bar",
+            type: "doughnut",
             data: {
                 labels: data.map(d => d.label),
                 datasets: [{
                     label: "Lines of Code",
                     data: data.map(d => d.value),
-                    backgroundColor: "rgba(75, 192, 192, 0.5)",
-                    borderColor: "rgba(75, 192, 192, 1)",
+                    backgroundColor: data.map((_, i) => colors[i % colors.length]),
+                    borderColor: "#333",
                     borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
-                scales: { y: { beginAtZero: true } }
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 50
+                        },
+                        title: { display: true, text: "Lines of Code" }
+                    },
+                    x: {
+                        ticks: {
+                            autoSkip: false,
+                            maxRotation: 45,
+                            minRotation: 30
+                        }
+                    }
+                }
             }
         });
+
     } catch (err) {
         console.error("Failed to render chart:", err);
     }
