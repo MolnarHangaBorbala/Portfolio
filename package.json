@@ -2,6 +2,6 @@
     "name": "portfolio-site",
     "version": "1.0.0",
     "dependencies": {
-        "@octokit/rest": "^19.0.7"
+        "@octokit/rest": "^18.12.0"
     }
 }
