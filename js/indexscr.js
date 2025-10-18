@@ -195,3 +195,142 @@ window.addEventListener('DOMContentLoaded', () => {
         destroy: () => { cancelAnimationFrame(rafId); particles = []; ctx.clearRect(0, 0, w, h); }
     };
 });
+
+// EASTER EGG (TOAST + CONFETTI)
+(function () {
+    const SECRET = "747";
+    let buffer = "";
+
+    const toast = document.getElementById('egg-toast');
+    const canvas = document.getElementById('egg-confetti');
+
+    function triggerEgg() {
+        if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+        confettiBurst();
+    }
+
+    window.triggerEgg = triggerEgg;
+
+    window.addEventListener('keydown', e => {
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+        const ch = e.key;
+        buffer += ch;
+        if (buffer.length > SECRET.length) buffer = buffer.slice(-SECRET.length);
+
+        if (buffer.toLowerCase() === SECRET) {
+            buffer = "";
+            triggerEgg();
+        }
+    });
+
+    function confettiBurst() {
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.style.display = 'block';
+        canvas.width = innerWidth * devicePixelRatio;
+        canvas.height = innerHeight * devicePixelRatio;
+        canvas.style.width = innerWidth + 'px';
+        canvas.style.height = innerHeight + 'px';
+        ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+
+        const pieces = [];
+        for (let i = 0; i < 60; i++) {
+            pieces.push({
+                x: Math.random() * innerWidth,
+                y: -10 - Math.random() * 100,
+                vx: (Math.random() - 0.5) * 6,
+                vy: Math.random() * 4 + 2,
+                r: Math.random() * 6 + 4,
+                color: `hsl(${Math.random() * 360}deg 80% 60%)`,
+                rot: Math.random() * Math.PI * 2,
+                scaleX: Math.random() * 0.7 + 0.3
+            });
+        }
+
+        let t = 0;
+        function frame() {
+            t++;
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let p of pieces) {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.12;
+                p.rot += 0.06;
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rot);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.r * p.scaleX, -p.r / 2, p.r * 2 * p.scaleX, p.r);
+                ctx.restore();
+            }
+            if (t < 160) requestAnimationFrame(frame);
+            else {
+                ctx.clearRect(0, 0, innerWidth, innerHeight);
+                canvas.style.display = 'none';
+            }
+        }
+        requestAnimationFrame(frame);
+    }
+})();
+
+// SECRET KEYPAD (MOBILE)
+const title = document.querySelector('h1');
+const keypad = document.getElementById('secret-keypad');
+const display = keypad.querySelector('.keypad-display');
+const buttons = keypad.querySelectorAll('button');
+
+let pressTimer;
+const SECRET_CODE = "747";
+let inputCode = "";
+
+title.addEventListener('touchstart', startHold);
+title.addEventListener('mousedown', startHold);
+title.addEventListener('touchend', cancelHold);
+title.addEventListener('mouseup', cancelHold);
+title.addEventListener('mouseleave', cancelHold);
+
+function startHold() {
+    pressTimer = setTimeout(() => {
+        keypad.style.display = 'flex';
+        inputCode = "";
+        display.textContent = "_";
+    }, 3000);
+}
+
+function cancelHold() {
+    clearTimeout(pressTimer);
+}
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const val = btn.textContent.trim();
+
+        if (btn.classList.contains('clear')) {
+            inputCode = inputCode.slice(0, -1);
+        } else if (btn.classList.contains('ok')) {
+            if (inputCode === SECRET_CODE) {
+                keypad.style.display = 'none';
+                window.triggerEgg?.();
+            } else {
+                display.textContent = "x";
+                setTimeout(() => display.textContent = "_", 800);
+                inputCode = "";
+            }
+            return;
+        } else {
+            inputCode += val;
+        }
+
+        display.textContent = inputCode || "_";
+    });
+});
+
+document.addEventListener('click', e => {
+    if (!keypad.contains(e.target) && e.target !== title) {
+        keypad.style.display = 'none';
+    }
+});
