@@ -735,8 +735,8 @@ footer {
 }
 
 #myChart {
-    max-width: 60vw;
-    max-height: 60vh;
+    max-width: 90vw;
+    max-height: 90vh;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
