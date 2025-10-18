@@ -367,7 +367,6 @@ header {
     border-top: 1px solid #00c9a767;
     border-bottom: 1px solid #00c9a767;
     backdrop-filter: blur(3px);
-    margin-bottom: 5rem;
 }
 
 .tech-grid {
@@ -716,9 +715,6 @@ footer {
 .github-langs-section {
     text-align: center;
     padding: 5rem 1rem;
-    background: rgba(10, 10, 10, 0.4);
-    border-top: 1px solid #00c9a767;
-    backdrop-filter: blur(3px);
 }
 
 .github-langs-section h2 {
