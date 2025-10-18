@@ -735,9 +735,14 @@ footer {
 }
 
 #myChart {
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 60vw;
+    max-height: 60vh;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.center-lang {
+    width: fit-content;
+    margin: 0 auto;
 }
