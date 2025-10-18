@@ -8,7 +8,7 @@
 
 :root {
     --accent: #00c9a7;
-    --accent-hover: #00e3b5;
+    --accent-hover: #00e357;
     --bg: #000;
     --bg-light: #1a1a1a;
     --text: #fff;
@@ -157,12 +157,13 @@ header.hero p {
     padding: 1rem;
     box-shadow: inset 0 0 20px rgb(10, 10, 10);
     transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s;
+    cursor: url("../cur/Embossed Gray Scale.cur"), auto;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgb(10, 10, 10);
-    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
+    cursor: url("../cur/Embossed Gray Scale.cur"), auto;
 }
 
 .project-card img {
@@ -175,11 +176,11 @@ header.hero p {
     color: var(--text);
 }
 
-.projects:hover .project-card {
+#dim:hover .project-card {
     opacity: 0.6;
 }
 
-.projects .project-card:hover {
+#dim .project-card:hover {
     opacity: 1;
 }
 
@@ -191,10 +192,17 @@ header.hero p {
     color: var(--accent);
     margin: 0 3px;
     transition: color 0.2s;
+    cursor: url("../cur/Embossed Gray Scale Link Select.cur"), auto;
 }
 
 .links a:hover {
-    color: var(--accent-hover);
+    color: var(--accent);
+}
+
+#dim {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* =========================================================
@@ -227,6 +235,11 @@ header.hero p {
     color: var(--accent);
 }
 
+.timeline-event:hover h3,
+.timeline-event:hover a {
+    color: var(--accent-hover) !important;
+}
+
 .timeline-event p {
     margin: 0;
     color: var(--text-muted);
@@ -240,7 +253,8 @@ header.hero p {
     text-align: center;
     padding: 5rem 1rem;
     background: rgba(10, 10, 10, 0.4);
-    border-top: 1px solid #00c9a767;;
+    border-top: 1px solid #00c9a767;
+    ;
     backdrop-filter: blur(3px);
 }
 

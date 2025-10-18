@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/indexstyle.css">
+    <link rel="stylesheet" href="../css/substyle.css">
     <link rel="stylesheet" href="../css/fadeoverlaystyle.css">
-    <title>Games</title>
+    <title>Games | _zendev</title>
 </head>
 
 <body>
+    <!-- Context Menu -->
     <div id="context-menu" class="context-menu">
         <div onclick="home()">🏠 Home</div>
         <div onclick="random()">🎲 Random Project</div>
@@ -18,17 +19,18 @@
         <div onclick="alert('Made by _zendev 💻')">💬 About</div>
     </div>
 
+    <!-- Fade Overlay -->
     <div id="fadeOverlay" class="fade-in-start"></div>
-    
+
+    <!-- Particle Background -->
     <div id="particle-wrap" aria-hidden="true">
         <canvas id="particle-canvas"></canvas>
     </div>
 
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo"><a class="selected" onclick="home()">_zendev</a></div>
-        <div class="menu-toggle" id="mobile-menu">
-            &#9776;
-        </div>
+        <div class="menu-toggle" id="mobile-menu">&#9776;</div>
         <ul class="nav-links">
             <li><a onclick="home()">Home</a></li>
             <li><a onclick="scratch()">Scratch</a></li>
@@ -37,46 +39,56 @@
         </ul>
     </nav>
 
+    <!-- Header -->
     <header>
         <h1>Games</h1>
         <p>HTML, CSS, JS — making the web more playful.</p>
     </header>
 
+    <!-- Projects Section -->
     <section class="projects">
         <div class="project-card btn">
-            <img src="../img/planet-merge-img.png" alt="Planet Merge">
+            <img src="../img/planet-merge-img.png" alt="Planet Merge Game Screenshot">
             <h3>Planet Merge</h3>
-            <span>
-                <a href="https://planet-merge.netlify.app" target="_blank">PLAY</a>
-                <span>|</span>
+            <div class="links">
+                <a href="https://planet-merge.netlify.app" target="_blank">PLAY</a> |
                 <a href="https://github.com/MolnarHangaBorbala/Planet-Merge" target="_blank">GITHUB</a>
-            </span>
+            </div>
         </div>
+
         <div class="project-card btn">
-            <img src="../img/combined-games-img.png" alt="Combined Games">
+            <img src="../img/combined-games-img.png" alt="Combined Games Screenshot">
             <h3>Combined Games</h3>
-            <span>
-                <a href="https://combined-games.netlify.app" target="_blank">PLAY</a>
-                <span>|</span>
+            <div class="links">
+                <a href="https://combined-games.netlify.app" target="_blank">PLAY</a> |
                 <a href="https://github.com/MolnarHangaBorbala/Combined-Games" target="_blank">GITHUB</a>
-            </span>
+            </div>
         </div>
+
         <div class="project-card btn">
-            <img src="../img/soon-img.png" alt="Soon">
+            <img src="../img/soon-img.png" alt="Coming Soon">
             <h3>Soon</h3>
-            <a href="#soon">xxxx</a>
+            <div class="links">
+                <a href="#soon">xxxx</a> |
+                <a href="#soon">xxxx</a>
+            </div>
         </div>
     </section>
 
+    <!-- Random Game Button -->
     <div class="center" onclick="random()">
-        <h3 id="random">-RANDOM GAME-</h3>
+        <h3 id="random">- RANDOM GAME -</h3>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>© 2025 _zendev | <a href="https://github.com/MolnarHangaBorbala" target="_blank">Github</a> | <a
-                href="https://im-zendev.itch.io" target="_blank">Itch.io</a></p>
+        <p>© 2025 _zendev |
+            <a href="https://github.com/MolnarHangaBorbala" target="_blank">GitHub</a> |
+            <a href="https://im-zendev.itch.io" target="_blank">Itch.io</a>
+        </p>
     </footer>
 
+    <!-- Scripts -->
     <script src="../js/indexscr.js"></script>
     <script src="../js/fadeoverlayscr.js"></script>
     <script src="../js/sub.js"></script>
