@@ -49,19 +49,22 @@ async function renderChart() {
 
         const ctx = document.getElementById("myChart").getContext("2d");
         new Chart(ctx, {
-            type: "line", // or 'bar', 'pie', etc.
+            type: "bar",
             data: {
-                labels: data.map(d => d.label),   // adjust according to your JSON
+                labels: data.map(d => d.label),
                 datasets: [{
-                    label: "My Dataset",
-                    data: data.map(d => d.value),   // adjust according to your JSON
+                    label: "Lines of Code",
+                    data: data.map(d => d.value),
+                    backgroundColor: "rgba(75, 192, 192, 0.5)",
                     borderColor: "rgba(75, 192, 192, 1)",
-                    backgroundColor: "rgba(75, 192, 192, 0.2)"
+                    borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
-                scales: { y: { beginAtZero: true } }
+                scales: {
+                    y: { beginAtZero: true }
+                }
             }
         });
     } catch (err) {
