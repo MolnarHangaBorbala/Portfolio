@@ -44,7 +44,7 @@ function projects() {
 
 async function renderChart() {
     try {
-        const res = await fetch("/.netlify/functions/fetchGitHubData");
+        const res = await fetch("/functions/countLines");
         const data = await res.json();
 
         const ctx = document.getElementById("myChart").getContext("2d");
