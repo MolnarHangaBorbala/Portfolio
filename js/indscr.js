@@ -71,7 +71,7 @@ async function renderChart() {
                     label: "Lines of Code",
                     data: data.map(d => d.value),
                     backgroundColor: data.map((_, i) => colors[i % colors.length]),
-                    borderColor: "#00c9a7",
+                    borderColor: "#ccc",
                     borderWidth: 2
                 }]
             },
@@ -93,3 +93,4 @@ async function renderChart() {
 
 
 renderChart();
+
