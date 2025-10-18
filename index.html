@@ -2,26 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/fadeoverlaystyle.css">
-    <link rel="stylesheet" href="css/indexstyle.css">
-    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>_zendev — Portfolio</title>
+
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/fadeoverlaystyle.css" />
+    <link rel="stylesheet" href="css/indexstyle.css" />
 </head>
 
 <body>
+    <!-- Fade overlay -->
     <div id="fadeOverlay" class="fade-in-start"></div>
 
+    <!-- Particle background -->
     <div id="particle-wrap" aria-hidden="true">
         <canvas id="particle-canvas"></canvas>
     </div>
 
+    <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo"><a class="selected" onclick="home()">_zendev</a></div>
-        <div class="menu-toggle" id="mobile-menu">
-            &#9776;
+        <div class="logo">
+            <a class="selected" onclick="home()">_zendev</a>
         </div>
+        <div class="menu-toggle" id="mobile-menu">&#9776;</div>
         <ul class="nav-links">
             <li><a onclick="home()" class="selected">Home</a></li>
             <li><a onclick="scratch()">Scratch</a></li>
@@ -30,89 +34,186 @@
         </ul>
     </nav>
 
-    <header>
+    <!-- Hero section -->
+    <header class="hero">
         <h1>Hi, I'm _zendev</h1>
         <p>web dev • game dev • peaceful code</p>
     </header>
 
-    <h4>Some projects:</h4>
+    <!-- Highlights -->
     <section class="projects">
-        <div class="project-card btn">
-            <img src="img/planet-merge-img.png" alt="Planet Merge">
-            <h3>Planet Merge</h3>
-            <span>
-                <a href="https://planet-merge.netlify.app" target="_blank">PLAY</a>
-                <span>|</span>
-                <a href="https://github.com/MolnarHangaBorbala/Planet-Merge" target="_blank">GITHUB</a>
-            </span>
-        </div>
-        <div class="project-card btn">
-            <img src="img/music-player-img.png" alt="Music Player">
-            <h3>Music Player</h3>
-            <span>
-                <a href="https://music-player-pr0ject.netlify.app/" target="_blank">OPEN</a>
-                <span>|</span>
-                <a href="https://github.com/MolnarHangaBorbala/Music-Player" target="_blank">GITHUB</a>
-            </span>
-        </div>
-        <div class="project-card btn">
-            <img src="img/combined-games-img.png" alt="Combined Games">
-            <h3>Combined Games</h3>
-            <span>
-                <a href="https://combined-games.netlify.app" target="_blank">PLAY</a>
-                <span>|</span>
-                <a href="https://github.com/MolnarHangaBorbala/Combined-Games" target="_blank">GITHUB</a>
-            </span>
+        <h2>Highlights</h2>
+        <p class="subtitle">My favorite projects</p>
+
+        <div class="project-grid">
+            <article class="project-card btn">
+                <img src="img/planet-merge-img.png" alt="Planet Merge screenshot" />
+                <h3>Planet Merge</h3>
+                <div class="links">
+                    <a href="https://planet-merge.netlify.app" target="_blank">PLAY</a>
+                    <span>|</span>
+                    <a href="https://github.com/MolnarHangaBorbala/Planet-Merge" target="_blank">GITHUB</a>
+                </div>
+            </article>
+
+            <article class="project-card btn">
+                <img src="img/music-player-img.png" alt="Music Player screenshot" />
+                <h3>Music Player</h3>
+                <div class="links">
+                    <a href="https://music-player-pr0ject.netlify.app/" target="_blank">OPEN</a>
+                    <span>|</span>
+                    <a href="https://github.com/MolnarHangaBorbala/Music-Player" target="_blank">GITHUB</a>
+                </div>
+            </article>
+
+            <article class="project-card btn">
+                <img src="img/combined-games-img.png" alt="Combined Games screenshot" />
+                <h3>Combined Games</h3>
+                <div class="links">
+                    <a href="https://combined-games.netlify.app" target="_blank">PLAY</a>
+                    <span>|</span>
+                    <a href="https://github.com/MolnarHangaBorbala/Combined-Games" target="_blank">GITHUB</a>
+                </div>
+            </article>
         </div>
     </section>
 
-    <h4>Timeline:</h4>
+    <!-- Timeline -->
     <section class="timeline">
-        <div class="timeline-event">
-            <h3>2019–2023</h3>
-            <p>My journey began with <a href="html/scratch-projects.html" target="_blank">Scratch</a>, where I created
-                my first games and interactive stories during 7th and 8th grade. Around the same time, I also explored
-                mild robotics and <a href="https://store.arduino.cc/">Arduino</a> projects. In 7th grade, I also applied
-                for the
-                <a href="https://careers.epam.hu/education/ekids">EPAM e-Kids</a> competition.
-            </p>
-        </div>
-        <div class="timeline-event">
-            <h3>2023–2024</h3>
-            <p>More advanced <a href="html/scratch-projects.html" target="_blank">Scratch</a> then learned HTML, CSS &
-                Python. Built first web projects and small scripts.</p>
-        </div>
-        <div class="timeline-event">
-            <h3>2024–2025</h3>
-            <p>Dove deeper into HTML, CSS & JS — created mini games and deployed on <a href="https://www.netlify.com/"
-                    target="_blank">Netlify</a>.</p>
-        </div>
-        <div class="timeline-event">
-            <h3>2025–Present</h3>
-            <p>Currently learning C# and advanced JavaScript to develop more complex web games and expand my portfolio.
-            </p>
-        </div>
-        <div class="timeline-event">
-            <h3>Present–Future</h3>
-            <p>I’ve also started creating my own AI chatbot with Python, which I plan to eventually integrate into a
-                physical
-                robot.</p>
+        <h2>Timeline</h2>
+        <p class="subtitle">What I've done over the years</p>
+
+        <div class="timeline-wrapper">
+            <div class="timeline-event">
+                <h3>2019–2023</h3>
+                <p>
+                    My journey began with <a href="html/scratch-projects.html" target="_blank">Scratch</a>,
+                    where I created my first games and interactive stories.
+                    Around the same time, I explored mild robotics and
+                    <a href="https://store.arduino.cc/" target="_blank">Arduino</a> projects.
+                    In 7th grade, I applied for the
+                    <a href="https://careers.epam.hu/education/ekids" target="_blank">EPAM e-Kids</a> competition.
+                </p>
+            </div>
+
+            <div class="timeline-event">
+                <h3>2023–2024</h3>
+                <p>
+                    Continued learning <a href="html/scratch-projects.html" target="_blank">Scratch</a>, then moved into
+                    HTML, CSS, and Python.
+                    Built my first web projects and small scripts.
+                </p>
+            </div>
+
+            <div class="timeline-event">
+                <h3>2024–2025</h3>
+                <p>
+                    Focused on HTML, CSS, and JS — creating mini web games and deploying them to
+                    <a href="https://www.netlify.com/" target="_blank">Netlify</a>.
+                </p>
+            </div>
+
+            <div class="timeline-event">
+                <h3>2025–Present</h3>
+                <p>
+                    Currently learning C# and advanced JavaScript to develop more complex web games and expand my
+                    portfolio.
+                </p>
+            </div>
+
+            <div class="timeline-event">
+                <h3>Present–Future</h3>
+                <p>
+                    Started building my own AI chatbot using Python — with plans to integrate it into a physical robot
+                    someday.
+                </p>
+            </div>
         </div>
     </section>
 
+    <!-- Tech Stack -->
+    <section id="tech-stack" class="tech-stack-section">
+        <h2>Tech Stack</h2>
+        <p class="subtitle">The tools and languages I build with</p>
+
+        <div class="tech-grid">
+            <div class="tech-item" data-tooltip="HTML5">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                        alt="HTML5" />
+                </a>
+                <span>HTML</span>
+            </div>
+            <div class="tech-item" data-tooltip="CSS3">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                </a>
+                <span>CSS</span>
+            </div>
+            <div class="tech-item" data-tooltip="JavaScript">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript" />
+                </a>
+                <span>JS</span>
+            </div>
+            <div class="tech-item" data-tooltip="Python">
+                <a href="https://www.python.org/" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python" />
+                </a>
+                <span>Python</span>
+            </div>
+            <div class="tech-item" data-tooltip="C#">
+                <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+                </a>
+                <span>C#</span>
+            </div>
+            <div class="tech-item" data-tooltip="GitHub">
+                <a href="https://github.com/" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                        alt="GitHub" />
+                </a>
+                <span>GitHub</span>
+            </div>
+            <div class="tech-item" data-tooltip="Netlify">
+                <a href="https://www.netlify.com/" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
+                        alt="Netlify" />
+                </a>
+                <span>Netlify</span>
+            </div>
+            <div class="tech-item" data-tooltip="Firebase">
+                <a href="https://firebase.google.com/" target="_blank">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08/icons/firebase/firebase-plain.svg"
+                        alt="Firebase" />
+                </a>
+                <span>Firebase</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2025 _zendev | <a href="https://github.com/MolnarHangaBorbala" target="_blank">Github</a> | <a
-                href="https://im-zendev.itch.io" target="_blank">Itch.io</a></p>
+        <p>
+            © 2025 _zendev |
+            <a href="https://github.com/MolnarHangaBorbala" target="_blank">GitHub</a> |
+            <a href="https://im-zendev.itch.io" target="_blank">Itch.io</a>
+        </p>
     </footer>
 
+    <!-- Custom Right-click Menu -->
     <div id="context-menu" class="context-menu">
         <div onclick="home()">🏠 Home</div>
         <div onclick="random()">🎲 Random Project</div>
         <div onclick="toggleTheme()">🌓 Toggle Theme</div>
-        <div onclick="alert('Built by ZenDev 💻 — turning ideas into pixels with HTML, CSS, and JavaScript.');">💬 About
+        <div onclick="alert('Built by _zendev 💻 — turning ideas into pixels with HTML, CSS, and JavaScript.');">
+            💬 About
         </div>
     </div>
 
+    <!-- Secret Keypad -->
     <div id="secret-keypad" class="keypad">
         <div class="keypad-display">_</div>
         <div class="keypad-buttons">
@@ -123,9 +224,11 @@
         </div>
     </div>
 
+    <!-- Easter Egg Toast + Confetti -->
     <div id="egg-toast">95 122 101 110 100 101 118 → 747 → _zendev decoded</div>
     <canvas id="egg-confetti"></canvas>
 
+    <!-- Scripts -->
     <script src="js/fadeoverlayscr.js"></script>
     <script src="js/indscr.js"></script>
     <script src="js/radialmenuscr.js"></script>
