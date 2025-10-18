@@ -92,3 +92,14 @@ async function renderChart() {
 }
 
 renderChart();
+
+for (const repo of repos) {
+    const { data: langs } = await octokit.request(
+        'GET /repos/{owner}/{repo}/languages',
+        { owner: 'MolnarHangaBorbala', repo: repo.name }
+    );
+    console.log(repo.name, langs); // log languages per repo
+    for (const [lang, bytes] of Object.entries(langs)) {
+        totalLanguages[lang] = (totalLanguages[lang] || 0) + bytes;
+    }
+}
