@@ -104,3 +104,38 @@ async function renderChart() {
 }
 
 renderChart();
+
+async function renderWakaChart() {
+    const res = await fetch("/.netlify/functions/fetchWakaData");
+    const data = await res.json();
+
+    if (!Array.isArray(data)) return console.error("Invalid data:", data);
+
+    const ctx = document.getElementById("wakatimeChart").getContext("2d");
+    new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: data.map(d => d.label),
+            datasets: [{
+                data: data.map(d => d.value),
+                backgroundColor: [
+                    "#00c9a7", "#00e3b2", "#00b4d8", "#0096c7", "#0077b6", "#38b000"
+                ],
+                borderWidth: 2,
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    position: "bottom",
+                    labels: {
+                        color: "#00e3b2",
+                        font: { size: 15 }
+                    }
+                }
+            }
+        }
+    });
+}
+
+renderWakaChart();
