@@ -770,7 +770,7 @@ footer {
 
 #milestones p {
     font-size: 1.1rem;
-    margin: 0.5rem 0;
+    margin: 0.5rem auto;
     color: var(--text);
     border-bottom: 1px solid #00c9a744;
     padding-bottom: 0.5rem;
@@ -780,5 +780,4 @@ footer {
 #milestones strong {
     font-size: 1.2rem;
     color: var(--accent-hover);
-
 }
