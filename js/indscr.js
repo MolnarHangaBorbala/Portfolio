@@ -119,7 +119,7 @@ async function renderMilestones() {
         document.getElementById("milestonesData").innerHTML = `
       <p>💻 <strong>${data.totalLines.toLocaleString()}</strong> total lines of code written</p>
       <p>🔁 <strong>${data.totalCommits.toLocaleString()}</strong> commits pushed</p>
-      <p>🚀 Active on GitHub since <strong>2021</strong></p>
+      <p>🚀 Active on GitHub since <strong>2023</strong></p>
     `;
     } catch (err) {
         console.error(err);
@@ -127,5 +127,6 @@ async function renderMilestones() {
             "Failed to load milestones ⚠️";
     }
 }
+
 
 renderMilestones();
