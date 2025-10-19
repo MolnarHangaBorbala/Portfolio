@@ -108,6 +108,7 @@ renderChart();
 async function renderWakaChart() {
     const res = await fetch("/.netlify/functions/fetchWakaData");
     const data = await res.json();
+    console.log("WakaTime response:", data);
 
     if (!data.languages || data.languages.length === 0) {
         document.getElementById("wakaTotal").innerText =
