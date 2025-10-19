@@ -109,17 +109,25 @@ async function renderWakaChart() {
     const res = await fetch("/.netlify/functions/fetchWakaData");
     const data = await res.json();
 
-    if (!Array.isArray(data)) return console.error("Invalid data:", data);
+    if (!data.languages || data.languages.length === 0) {
+        document.getElementById("wakaTotal").innerText =
+            "No recent WakaTime activity — go code something 💻";
+        return;
+    }
+
+    document.getElementById("wakaTotal").innerText =
+        `Total coding time (last 30 days): ${data.totalHours.toFixed(1)} hours`;
 
     const ctx = document.getElementById("wakatimeChart").getContext("2d");
     new Chart(ctx, {
         type: "doughnut",
         data: {
-            labels: data.map(d => d.label),
+            labels: data.languages.map(d => d.label),
             datasets: [{
-                data: data.map(d => d.value),
+                data: data.languages.map(d => d.value),
                 backgroundColor: [
-                    "#00c9a7", "#00e3b2", "#00b4d8", "#0096c7", "#0077b6", "#38b000"
+                    "#00c9a7", "#00e3b2", "#00b4d8", "#0096c7", "#0077b6",
+                    "#005f73", "#38b000", "#70e000", "#80ed99", "#2ec4b6"
                 ],
                 borderWidth: 2,
             }]
