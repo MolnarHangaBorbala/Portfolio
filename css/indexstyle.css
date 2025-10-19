@@ -765,7 +765,7 @@ footer {
 }
 
 #milestones:hover p strong {
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 
 #milestones p {
@@ -777,4 +777,5 @@ footer {
 #milestones strong {
     font-size: 1.2rem;
     color: var(--accent-hover);
+
 }
