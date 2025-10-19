@@ -118,7 +118,7 @@ h2 {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(6px);
     z-index: 10000;
     padding: 1rem 2rem;
