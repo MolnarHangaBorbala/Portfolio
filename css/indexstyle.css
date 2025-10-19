@@ -759,7 +759,7 @@ footer {
     backdrop-filter: blur(3px);
 }
 
-#milestones:hover #milestones strong {
+#milestones:hover strong {
     transform: scale(1.05);
 }
 
@@ -772,4 +772,5 @@ footer {
 #milestones strong {
     font-size: 1.2rem;
     color: var(--accent-hover);
+
 }
