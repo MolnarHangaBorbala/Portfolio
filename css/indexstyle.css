@@ -712,21 +712,18 @@ footer {
 /* =========================================================
     GITHUB LANGUAGES + WAKATIME CHART SECTION
 ========================================================= */
-.github-langs-section,
-.chart-section {
+.github-langs-section {
     text-align: center;
     padding: 5rem 1rem;
 }
 
-.github-langs-section h2,
-.chart-section h2 {
+.github-langs-section h2 {
     font-size: 2rem;
     color: #fff;
     margin-bottom: 0.5rem;
 }
 
-.github-langs-section .subtitle,
-.chart-section .subtitle {
+.github-langs-section .subtitle {
     color: #fff;
     margin-bottom: 2rem;
 }
@@ -737,8 +734,7 @@ footer {
     margin: 0 auto;
 }
 
-#myChart,
-#wakatimeChart {
+#myChart {
     max-width: 90vw;
     max-height: 90vh;
     border-radius: 15px;
