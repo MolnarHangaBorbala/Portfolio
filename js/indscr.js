@@ -104,3 +104,28 @@ async function renderChart() {
 }
 
 renderChart();
+
+async function renderMilestones() {
+    try {
+        const res = await fetch("/.netlify/functions/getGitHubStats");
+        const data = await res.json();
+
+        if (!data.totalCommits || !data.totalLines) {
+            document.getElementById("milestonesData").innerText =
+                "Unable to fetch GitHub milestones right now 🚧";
+            return;
+        }
+
+        document.getElementById("milestonesData").innerHTML = `
+      <p>💻 <strong>${data.totalLines.toLocaleString()}</strong> total lines of code written</p>
+      <p>🔁 <strong>${data.totalCommits.toLocaleString()}</strong> commits pushed</p>
+      <p>🚀 Active on GitHub since <strong>2021</strong></p>
+    `;
+    } catch (err) {
+        console.error(err);
+        document.getElementById("milestonesData").innerText =
+            "Failed to load milestones ⚠️";
+    }
+}
+
+renderMilestones();
