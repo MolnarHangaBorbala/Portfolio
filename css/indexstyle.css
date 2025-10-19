@@ -752,7 +752,7 @@ footer {
 ========================================================= */
 #milestones {
     text-align: center;
-    padding: 5rem 1rem;
+    padding: 3rem 1rem;
     background: rgba(10, 10, 10, 0.4);
     border-top: 1px solid #00c9a767;
     border-bottom: 1px solid #00c9a767;
@@ -760,7 +760,7 @@ footer {
 }
 
 #milestones:hover #milestones strong {
-    transform: translateY(10px);
+    transform: scale(1.05);
 }
 
 #milestones p {
@@ -770,5 +770,6 @@ footer {
 }
 
 #milestones strong {
+    font-size: 1.2rem;
     color: var(--accent-hover);
 }
