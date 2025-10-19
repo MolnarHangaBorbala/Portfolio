@@ -751,14 +751,16 @@ footer {
    MILLESTONE SECTION
 ========================================================= */
 #milestones {
-    background: var(--bg-light);
-    border-radius: 1.5rem;
-    box-shadow: 0 0 20px rgba(0, 201, 167, 0.1);
-    transition: transform 0.3s ease;
+    text-align: center;
+    padding: 5rem 1rem;
+    background: rgba(10, 10, 10, 0.4);
+    border-top: 1px solid #00c9a767;
+    border-bottom: 1px solid #00c9a767;
+    backdrop-filter: blur(3px);
 }
 
-#milestones:hover {
-    transform: scale(1.02);
+#milestones:hover #milestones strong {
+    transform: translateY(10px);
 }
 
 #milestones p {
