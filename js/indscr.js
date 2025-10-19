@@ -128,5 +128,4 @@ async function renderMilestones() {
     }
 }
 
-
 renderMilestones();

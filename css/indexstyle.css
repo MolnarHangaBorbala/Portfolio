@@ -766,6 +766,7 @@ footer {
 
 #milestones:hover p strong {
     transform: translateY(-5px);
+    text-shadow: 0 0 8px var(--accent-hover);
 }
 
 #milestones p {
