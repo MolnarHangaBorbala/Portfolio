@@ -761,7 +761,7 @@ footer {
 
 #milestones p strong {
     display: inline-block;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 #milestones:hover p strong {
@@ -773,13 +773,10 @@ footer {
     margin: 0.5rem 0;
     color: var(--text);
     border-bottom: 1px solid #00c9a744;
+    padding-bottom: 0.5rem;
 }
 
 #milestones strong {
     font-size: 1.2rem;
     color: var(--accent-hover);
-
 }
-
-
-
