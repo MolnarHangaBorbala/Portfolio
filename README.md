@@ -182,3 +182,7 @@ While this is a personal portfolio, suggestions and feedback are welcome! Feel f
 - Fork and experiment
 
 Built with 💚 by _zendev | Last updated: 2025
+
+## Future ideas
+- Add last commit time to Milestones
+- Add 'To top' button to left click menu
