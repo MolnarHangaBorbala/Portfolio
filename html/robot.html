@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/indexstyle.css">
+    <link rel="stylesheet" href="../css/liststyle.css">
+    <title>Robot Project | _zendev</title>
+</head>
+
+<body>
+    <!-- Fade Overlay -->
+    <div id="fadeOverlay" class="fade-in-start"></div>
+
+    <!-- Particle Background -->
+    <div id="particle-wrap" aria-hidden="true">
+        <canvas id="particle-canvas"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo"><a class="selected" onclick="home()">_zendev</a></div>
+        <div class="menu-toggle" id="mobile-menu">
+            &#9776;
+        </div>
+        <ul class="nav-links">
+            <li><a onclick="home()">Home</a></li>
+            <li><a onclick="scratch()">Scratch</a></li>
+            <li><a onclick="games()">Games</a></li>
+            <li><a onclick="projects()">Projects</a></li>
+            <li><a onclick="robot()" class="selected">Robot</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Humanoid Robot Build</h1>
+        <p>AI-powered modular robot with camera vision and motion systems</p>
+    </header>
+
+    <!-- Project Overview -->
+    <section class="projects">
+        <h2>Project Overview</h2>
+        <p class="subtitle">Transforming a static torso into a fully dynamic humanoid</p>
+
+        <div class="project-grid single">
+            <article class="project-card">
+                <img src="../img/robot-preview.png" alt="Humanoid Robot Preview" class="project-image" />
+                <div class="project-content">
+                    <h3>Humanoid Robot Evolution</h3>
+                    <p>
+                        Witness the evolution of robotics: starting from a static torso with an AI-driven head, our
+                        humanoid grows into a fully articulated figure with arms and legs. Powered by NVIDIA Jetson, it
+                        perceives its environment in real-time and makes intelligent decisions, bringing the future of
+                        robotics to life.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Build Phases -->
+    <section class="timeline">
+        <h2>Phase 1 — Static Torso with Moving Head/Camera</h2>
+
+        <table class="robot-list">
+            <thead>
+                <tr>
+                    <th>Part</th>
+                    <th>Component</th>
+                    <th>Purpose / Notes</th>
+                    <th>Programming / Software</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Brain / Controller</td>
+                    <td>NVIDIA Jetson Orin Nano</td>
+                    <td>Runs YOLOv8 for object detection, manages camera and sensors</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (<a
+                            href="https://yolov8.com/" target="_blank">YOLOv8</a>, <a href="https://opencv.org/"
+                            target="_blank">OpenCV</a>,
+                        <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a>)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Camera / Vision</td>
+                    <td>Pi Camera Module 3 or OAK-D Lite</td>
+                    <td>Acts as robot “eyes”; face and object tracking</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (cv2, <a
+                            href="https://docs.luxonis.com/software-v3/depthai/" target="_blank">depthai</a>)</td>
+                </tr>
+                <tr>
+                    <td>Head Actuation</td>
+                    <td>2–3 Servo Motors (MG996R / Dynamixel)</td>
+                    <td>Pan/tilt movement for camera tracking</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (<a
+                            href="https://en.wikipedia.org/wiki/General-purpose_input/output" target="_blank">GPIO</a> /
+                        <a href="https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_sdk/overview/"
+                            target="_blank">Dynamixel
+                            SDK</a>)</td>
+                </tr>
+                <tr>
+                    <td>Sensors</td>
+                    <td>IMU (MPU-6050), Ultrasonic (HC-SR04)</td>
+                    <td>Detects tilt, rotation, and obstacles</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (I2C communication)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Frame / Structure</td>
+                    <td>Acrylic / Aluminum torso</td>
+                    <td>Houses components and ensures modularity</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Power</td>
+                    <td>7.4–12V Li-ion battery + regulators</td>
+                    <td>Stable power for Jetson, servos, sensors</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="timeline">
+        <h2>Phase 2 — Adding Arms</h2>
+
+        <table class="robot-list">
+            <thead>
+                <tr>
+                    <th>Part</th>
+                    <th>Component</th>
+                    <th>Purpose / Notes</th>
+                    <th>Programming / Software</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Shoulder Actuation</td>
+                    <td>Dynamixel MX-28 or high-torque servos</td>
+                    <td>Moves shoulder joints for smooth arm motion</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (<a
+                            href="https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_sdk/overview/"
+                            target="_blank">Dynamixel
+                            SDK</a>) +
+                        <a href="https://www.w3schools.com/cpp/cpp_intro.asp" class="cplusplus" target="_blank">C++</a>
+                        (firmware)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Elbow Actuation</td>
+                    <td>Servo motors / Dynamixel</td>
+                    <td>Controls elbow bending and arm extension</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (control scripts)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Wrist & Hand</td>
+                    <td>Micro-servos</td>
+                    <td>Wrist rotation and finger gestures</td>
+                    <td><a href="https://www.w3schools.com/cpp/cpp_intro.asp" class="cplusplus" target="_blank">C++</a>
+                        (<a href="https://www.arduino.cc/" target="_blank">Arduino</a> / <a
+                            href="https://www.espressif.com/en/products/socs/esp32" target="_blank">ESP32</a>)</td>
+                </tr>
+                <tr>
+                    <td>Motor Controller</td>
+                    <td>PWM or Dynamixel controller</td>
+                    <td>Coordinates multiple servos</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> + <a
+                            href="https://www.ros.org/" class="ros" target="_blank">ROS 2</a> (optional)</td>
+                </tr>
+                <tr>
+                    <td>Power Supply</td>
+                    <td>Upgraded Li-ion pack (6–12V)</td>
+                    <td>Stable power for servos and controller</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="timeline">
+        <h2>Phase 3 — Adding Legs</h2>
+
+        <table class="robot-list">
+            <thead>
+                <tr>
+                    <th>Part</th>
+                    <th>Component</th>
+                    <th>Purpose / Notes</th>
+                    <th>Programming / Software</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hip Joints</td>
+                    <td>High-torque servos / Dynamixel series</td>
+                    <td>Controls leg rotation and supports torso</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (motion control) +
+                        <a href="https://www.ros.org/" class="ros" target="_blank">ROS 2</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Knee Joints</td>
+                    <td>Servo motors / Dynamixel</td>
+                    <td>Bends knees for walking</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (servo control
+                        libraries)</td>
+                </tr>
+                <tr>
+                    <td>Ankle Joints</td>
+                    <td>Servos / Stepper motors</td>
+                    <td>Maintains balance and posture</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> +
+                        <a href="https://www.w3schools.com/cpp/cpp_intro.asp" class="cplusplus" target="_blank">C++</a>
+                        (PID balancing)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Foot Sensors</td>
+                    <td>Pressure / Force sensors</td>
+                    <td>Detects ground contact for stability</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (sensor integration)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Motor Controller</td>
+                    <td>PWM controller (multi-channel)</td>
+                    <td>Drives all leg servos</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> + <a
+                            href="https://www.ros.org/" class="ros" target="_blank">ROS 2</a></td>
+                </tr>
+                <tr>
+                    <td>Power Supply</td>
+                    <td>Large Li-ion battery</td>
+                    <td>Handles peak load during walking</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Balance Sensors</td>
+                    <td>IMU / Gyroscope / Accelerometer</td>
+                    <td>Maintains upright posture and gait control</td>
+                    <td><a href="https://www.python.org/" class="python" target="_blank">Python</a> (sensor fusion /
+                        Kalman filters)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2025 _zendev |
+            <a href="https://github.com/MolnarHangaBorbala" target="_blank">GitHub</a> |
+            <a href="https://im-zendev.itch.io" target="_blank">Itch.io</a>
+        </p>
+    </footer>
+
+    <!-- Custom Right-click Menu -->
+    <div id="context-menu" class="context-menu">
+        <div onclick="home()">🏠 Home</div>
+        <div onclick="random()">🎲 Random Project</div>
+        <div onclick="toggleTheme()">🌓 Toggle Theme</div>
+        <div onclick="alert('Built by _zendev 💻 — turning ideas into pixels with HTML, CSS, and JavaScript.');">
+            💬 About
+        </div>
+    </div>
+
+    <script src="../js/indexscr.js"></script>
+    <script src="../js/fadeoverlayscr.js"></script>
+    <script src="../js/sub.js"></script>
+    <script src="../js/radialmenuscr.js"></script>
+</body>
+
+</html>

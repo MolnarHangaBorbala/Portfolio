@@ -29,6 +29,8 @@
             <li><a onclick="scratch()">Scratch</a></li>
             <li><a onclick="games()">Games</a></li>
             <li><a onclick="projects()" class="selected">Projects</a></li>
+            <li><a onclick="robot()" id="robot-id2" class="disabled" aria-disabled="true"
+                    style="pointer-events:none; opacity:0.5;">Robot</a></li>
         </ul>
     </nav>
 
@@ -40,29 +42,33 @@
 
     <!-- Highlights -->
     <section class="projects">
-        <div class="project-card btn">
-            <img src="../img/music-player-img.png" alt="Music Player">
-            <h3>Music Player</h3>
-            <span>
-                <a href="https://music-player-pr0ject.netlify.app/" target="_blank">OPEN</a>
-                <span>|</span>
-                <a href="https://github.com/MolnarHangaBorbala/Music-Player" target="_blank">GITHUB</a>
-            </span>
-        </div>
-        <div class="project-card btn">
-            <img src="../img/pick-a-color-img.png" alt="Pick A Color">
-            <h3>Pick A Color</h3>
-            <span>
-                <a href="https://pick-a-color-project.netlify.app" target="_blank">OPEN</a>
-                <span>|</span>
-                <a href="https://github.com/MolnarHangaBorbala/Pick-A-Color" target="_blank">GITHUB</a>
-            </span>
-        </div>
-        <div class="project-card btn">
-            <img src="../img/soon-img.png" alt="Soon">
-            <h3>Soon</h3>
-            <a href="#soon">xxxx</a> |
-            <a href="#soon">xxxx</a>
+        <div id="dim">
+            <div class="project-grid">
+                <article class="project-card btn">
+                    <img src="../img/music-player-img.png" alt="Music Player">
+                    <h3>Music Player</h3>
+                    <span>
+                        <a href="https://music-player-pr0ject.netlify.app/" target="_blank">OPEN</a>
+                        <span>|</span>
+                        <a href="https://github.com/MolnarHangaBorbala/Music-Player" target="_blank">GITHUB</a>
+                    </span>
+                </article>
+                <article class="project-card btn">
+                    <img src="../img/pick-a-color-img.png" alt="Pick A Color">
+                    <h3>Pick A Color</h3>
+                    <span>
+                        <a href="https://pick-a-color-project.netlify.app" target="_blank">OPEN</a>
+                        <span>|</span>
+                        <a href="https://github.com/MolnarHangaBorbala/Pick-A-Color" target="_blank">GITHUB</a>
+                    </span>
+                </article>
+                <article class="project-card btn">
+                    <img src="../img/soon-img.png" alt="Soon">
+                    <h3>Soon</h3>
+                    <a href="#soon">xxxx</a> |
+                    <a href="#soon">xxxx</a>
+                </article>
+            </div>
         </div>
     </section>
 

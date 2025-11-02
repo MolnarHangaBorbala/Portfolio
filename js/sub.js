@@ -41,3 +41,14 @@ function projects() {
         window.location.href = "projects.html";
     }, 350);
 }
+
+function robot() {
+    const overlay = document.getElementById('fadeOverlay');
+
+    overlay.classList.remove('fade-in');
+    overlay.classList.add('fade-out');
+
+    setTimeout(() => {
+        window.location.href = "robot.html";
+    }, 350);
+}

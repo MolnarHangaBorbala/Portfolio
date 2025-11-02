@@ -196,13 +196,14 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 });
 
-// EASTER EGG (TOAST + CONFETTI)
+// EASTER EGG (TOAST + CONFETTI + UNLOCK NAV ITEM)
 (function () {
     const SECRET = "747";
     let buffer = "";
 
     const toast = document.getElementById('egg-toast');
     const canvas = document.getElementById('egg-confetti');
+    const robotNav = document.querySelector('#robot-id');
 
     function triggerEgg() {
         if (toast) {
@@ -210,10 +211,20 @@ window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => toast.classList.remove('show'), 3500);
         }
         confettiBurst();
+        unlockRobot();
+    }
+
+    function unlockRobot() {
+        if (!robotNav) return;
+        robotNav.classList.remove('disabled');
+        robotNav.removeAttribute('aria-disabled');
+        robotNav.style.pointerEvents = 'auto';
+        robotNav.style.opacity = '1';
     }
 
     window.triggerEgg = triggerEgg;
 
+    // --- KEYBOARD EASTER EGG ---
     window.addEventListener('keydown', e => {
         if (e.ctrlKey || e.metaKey || e.altKey) return;
 
@@ -227,6 +238,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- CONFETTI ---
     function confettiBurst() {
         if (!canvas) return;
         const ctx = canvas.getContext('2d');

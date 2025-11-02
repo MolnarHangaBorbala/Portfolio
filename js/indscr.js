@@ -42,6 +42,17 @@ function projects() {
     }, 350);
 }
 
+function robot() {
+    const overlay = document.getElementById('fadeOverlay');
+
+    overlay.classList.remove('fade-in');
+    overlay.classList.add('fade-out');
+
+    setTimeout(() => {
+        window.location.href = "html/robot.html";
+    }, 350);
+}
+
 async function renderChart() {
     try {
         const res = await fetch("/.netlify/functions/countLines");
